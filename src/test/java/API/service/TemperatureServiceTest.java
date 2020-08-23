@@ -54,6 +54,17 @@ public class TemperatureServiceTest {
 
         assertTrue(actualMessage.contains(expectedMessage));
     }
+    @Test
+    public void test_TemperatureService_getAverage_should_throw_exception_with_mac_string_empty() {
+        TemperatureService service=new TemperatureService();
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            service.getAverage("","","","");
+        });
+        String expectedMessage = "il mac deve essere un mac valido";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
 
 }
 
