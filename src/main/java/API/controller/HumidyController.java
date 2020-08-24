@@ -21,17 +21,17 @@ public class HumidyController {
     @GetMapping("humidity/{home_mac}/search")
     public List<Humidity> search(@PathVariable String home_mac)
     {
-
+ return new ArrayList<Humidity>();
     }
 
     @GetMapping("/humidity/{home_mac}/lasts")
-    public List<Temperatura> lasts(@PathVariable String home_mac) {
-
+    public List<Humidity> lasts(@PathVariable String home_mac) {
+        return new ArrayList<Humidity>();
     }
 
     @GetMapping(value = "/humidity/{home_mac}/{sensor_mac}/average/{gte}/{lte}")
     public Double getaverageTemperature(@PathVariable String home_mac, @PathVariable String sensor_mac,@PathVariable String lte, @PathVariable String gte )
     {
-
+        return 0.0;
     }
 }
