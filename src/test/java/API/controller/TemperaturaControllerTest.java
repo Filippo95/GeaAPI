@@ -1,6 +1,5 @@
 package API.controller;
 
-import API.controller.TemperaturaController;
 import API.model.Temperatura;
 import API.service.TemperatureService;
 import org.json.JSONArray;
