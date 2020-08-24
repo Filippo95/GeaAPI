@@ -35,7 +35,7 @@ public class HumidityControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private HumidityService humidityService;
+    private HumidityService service;
     private List<Humidity> lista;
     String exampleHumidityJson="";
 
@@ -45,16 +45,16 @@ public class HumidityControllerTest {
         try {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
 
-            Humidity mockTemperatura = new Humidity(
+            Humidity mockhumidity = new Humidity(
                     "8Z60-3MBv7xejceh6jSY",
                     "B8:27:EB:B7:E3:4C",
                     "8C:AA:B5:04:5F:F7",
                     new Timestamp(df.parse("2020-08-17T09:16:44.458+00:00").getTime()),
-                    new Double("50.09"));
+                    new Double("29.09"));
 
-            lista.add(mockTemperatura);
-            lista.add(mockTemperatura);
-            lista.add(mockTemperatura);
+            lista.add(mockhumidity);
+            lista.add(mockhumidity);
+            lista.add(mockhumidity);
         }
         catch(Exception e)
         {
@@ -66,7 +66,7 @@ public class HumidityControllerTest {
     @Test
     public void Test_controller_lasts_should_return_an_arrray_of_3_elem() throws Exception {
         Mockito.when(
-                humidityService.getLastHumidity(Mockito.anyString())
+                service.getLastHumidity(Mockito.anyString())
         ).thenReturn(lista);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
@@ -92,7 +92,7 @@ public class HumidityControllerTest {
     }
     @Test
     public void Test_controller_search_should_return_many_of_same_home_mac () throws Exception {
-        Mockito.when(humidityService.search(Mockito.anyString())
+        Mockito.when(service.search(Mockito.anyString())
         ).thenReturn(lista);
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(

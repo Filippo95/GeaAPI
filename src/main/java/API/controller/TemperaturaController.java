@@ -28,7 +28,7 @@ public class TemperaturaController {
         if(!matcher.matches())
         {
             List<Temperatura> err=new ArrayList<>();
-            err.add(new Temperatura("errore","la stringa non è un mac","",new Timestamp(0),0.0));
+            err.add(new Temperatura("errore","B8:27:EB:B7:E3:4C","B8:27:EB:B7:E3:4C",new Timestamp(0),0.0));
             return err;
         }
         else {
@@ -42,7 +42,7 @@ public class TemperaturaController {
             }
         }
         List<Temperatura> err=new ArrayList<>();
-        err.add(new Temperatura("","","",new Timestamp(0),0.0));
+        err.add(new Temperatura("","B8:27:EB:B7:E3:4C","B8:27:EB:B7:E3:4C",new Timestamp(0),0.0));
         return err;
 
     }
@@ -53,7 +53,7 @@ public class TemperaturaController {
         if(!matcher.matches())
         {
             List<Temperatura> err=new ArrayList<>();
-            err.add(new Temperatura("errore","la stringa non è un mac","",new Timestamp(0),0.0));
+            err.add(new Temperatura("errore","B8:27:EB:B7:E3:4C","B8:27:EB:B7:E3:4C",new Timestamp(0),0.0));
             return err;
         }
         else {
