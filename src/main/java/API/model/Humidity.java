@@ -31,10 +31,7 @@ public class Humidity {
     }
 
     public void setHome_mac(String home_mac) {
-        if(!isMac(home_mac))
-        {
-            throw new IllegalArgumentException("il mac home deve essere valido!");
-        }
+
         this.home_mac = home_mac;
     }
 
@@ -43,10 +40,7 @@ public class Humidity {
     }
 
     public void setSensor_mac(String sensor_mac) {
-        if(!isMac(sensor_mac))
-        {
-            throw new IllegalArgumentException("il mac del sensore deve essere valido!");
-        }
+
         this.sensor_mac = sensor_mac;
     }
 
