@@ -126,10 +126,15 @@ public class TemperatureService {
     public Double getAverage(String home_mac, String sensor_mac, String lte, String gte)throws Exception{
         List<Temperatura> l=new ArrayList<Temperatura>();
         Pattern pattern=Pattern.compile("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
+        Pattern timestmapPattern=Pattern.compile("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3})Z$");
 
-        if(!pattern.matcher(home_mac).matches() && !pattern.matcher(sensor_mac).matches() )
+        if(!pattern.matcher(home_mac).matches() ||
+                !pattern.matcher(sensor_mac).matches() ||
+                !timestmapPattern.matcher(lte).matches() ||
+                !timestmapPattern.matcher(gte).matches())
         {
-            throw new IllegalArgumentException("il mac deve essere un mac valido");
+            throw new IllegalArgumentException("il mac o il timestamp devono essere validi");
+
         }
 
         BoolQueryBuilder boolQuery = new BoolQueryBuilder();

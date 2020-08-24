@@ -53,15 +53,12 @@ public class TemperaturaControllerTest {
             lista.add(mockTemperatura);
             lista.add(mockTemperatura);
             lista.add(mockTemperatura);
-
-
                }
         catch(Exception e)
         {
             System.out.println(e.getMessage());
         }
        exampleTemperatureJson = "[{\"id\":\"8Z60-3MBv7xejceh6jSY\",\"home_mac\":\"B8:27:EB:B7:E3:4C\",\"sensor_mac\":\"8C:AA:B5:04:5F:F7\",\"timestamp\":\"2020-08-17T09:16:44.458+00:00\",\"value\":29.09},{\"id\":\"8Z60-3MBv7xejceh6jSY\",\"home_mac\":\"B8:27:EB:B7:E3:4C\",\"sensor_mac\":\"8C:AA:B5:04:5F:F7\",\"timestamp\":\"2020-08-17T09:16:44.458+00:00\",\"value\":29.09},{\"id\":\"8Z60-3MBv7xejceh6jSY\",\"home_mac\":\"B8:27:EB:B7:E3:4C\",\"sensor_mac\":\"8C:AA:B5:04:5F:F7\",\"timestamp\":\"2020-08-17T09:16:44.458+00:00\",\"value\":29.09}]";
-
     }
 
 
@@ -107,7 +104,6 @@ public class TemperaturaControllerTest {
         JSONArray expected_array=new JSONArray(expected);
         System.out.println(expected);
 
-
     }
 
     /*
@@ -141,7 +137,43 @@ public class TemperaturaControllerTest {
         Assert.assertEquals("errore",expected_array.getJSONObject(0).optString("id").toString());
     }
     @Test
-    public void method_getaverageTemperature_should_return_error_if_mac_is_not_valid() throws Exception{
+    public void method_getaverageTemperature_should_return_error_if_home_mac_is_not_valid() throws Exception{
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+                "/temperature/B8:27:EB:B7:E3:ff/68:C6:3A:87:F9:FB/average/2020-08-22T22:00:00.000Z/2020-08-23T21:59:59.999Z").accept(
+                MediaType.APPLICATION_JSON);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        String expected=result.getResponse().getContentAsString();
 
+        Assert.assertEquals("0.0",expected);
+    }
+    @Test
+    public void method_getaverageTemperature_should_return_error_if_sensor_mac_is_not_valid() throws Exception{
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+                "/temperature/68:C6:3A:87:F9:FB/6B8:27:EB:B7:E3:ff/average/2020-08-22T22:00:00.000Z/2020-08-23T21:59:59.999Z").accept(
+                MediaType.APPLICATION_JSON);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        String expected=result.getResponse().getContentAsString();
+
+        Assert.assertEquals("0.0",expected);
+    }
+    @Test
+    public void method_getaverageTemperature_should_return_error_if_timestamp_lte_is_not_valid() throws Exception{
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+                "/temperature/68:C6:3A:87:F9:FB/68:C6:3A:87:F9:FB/average/2020-08-22T22/2020-08-23T21:59:59.999Z").accept(
+                MediaType.APPLICATION_JSON);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        String expected=result.getResponse().getContentAsString();
+
+        Assert.assertEquals("0.0",expected);
+    }
+    @Test
+    public void method_getaverageTemperature_should_return_error_if_timestamp_gte_is_not_valid() throws Exception{
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
+                "/temperature/68:C6:3A:87:F9:FB/68:C6:3A:87:F9:FB/average/2020-08-22T22/2020-08-23T21:59:59.999Z").accept(
+                MediaType.APPLICATION_JSON);
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+        String expected=result.getResponse().getContentAsString();
+
+        Assert.assertEquals("0.0",expected);
     }
 }
