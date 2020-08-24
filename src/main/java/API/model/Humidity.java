@@ -12,6 +12,7 @@ public class Humidity {
     private double value;
 
     public Humidity(String id, String home_mac, String sensor_mac, Timestamp timestamp,double value) {
+
     }
 
 
@@ -69,6 +70,10 @@ public class Humidity {
 
     public void setId(String id) {
         this.id = id;
+    }
+    @Override
+    public String toString() {
+        return "Humidity [id=" + id + ", home_mac=" + home_mac + ", sensor_mac=" + sensor_mac + ", value=" + value + ", timestamp=" + timestamp +"]";
     }
 
 
