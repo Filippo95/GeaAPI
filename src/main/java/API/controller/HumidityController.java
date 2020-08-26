@@ -2,7 +2,6 @@ package API.controller;
 
 import API.Logging;
 import API.model.Humidity;
-import API.model.Temperatura;
 import API.service.HumidityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +26,7 @@ public class HumidityController {
         Matcher matcher=pattern.matcher(home_mac);
         if(!matcher.matches())
         {
+
             List<Humidity> err=new ArrayList<Humidity>();
             err.add(new Humidity("errore","B8:27:EB:B7:E3:4C","B8:27:EB:B7:E3:4C",new Timestamp(0),0.0));
             return err;
@@ -72,14 +72,14 @@ public class HumidityController {
     }
 
     @GetMapping(value = "/humidity/{home_mac}/{sensor_mac}/average/{gte}/{lte}")
-    public Double getaverageTemperature(@PathVariable String home_mac, @PathVariable String sensor_mac,@PathVariable String lte, @PathVariable String gte )
+    public Double getaverageHumidity(@PathVariable String home_mac, @PathVariable String sensor_mac,@PathVariable String lte, @PathVariable String gte )
     {
         Pattern pattern=Pattern.compile("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
         Pattern timestmapPattern=Pattern.compile("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3})Z$");
 
         if(!pattern.matcher(home_mac).matches() && !pattern.matcher(sensor_mac).matches() && !timestmapPattern.matcher(gte).matches() && !timestmapPattern.matcher(lte).matches())
         {
-            new Logging("Errore nel controller humidity","Errore il mac inserito non ","ritorno 0","/temperature/"+home_mac+"/"+sensor_mac+"/average/"+lte+"/"+gte);
+            new Logging("Errore nel controller humidity","Errore il mac inserito non ","ritorno 0","/humidity/"+home_mac+"/"+sensor_mac+"/average/"+lte+"/"+gte);
             return 0.0;
         }
         else
