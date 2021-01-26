@@ -1,6 +1,9 @@
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/controller/TemperaturaControllerTest.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/service/HumidityServiceTest.java
+/Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/model/SwitchModelTest.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/model/HumidityModelTest.java
+/Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/service/SwitchServiceTest.java
+/Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/controller/SwitchControllerTest.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/model/TemperatureModelTest.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/controller/HumidityControllerTest.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/test/java/API/GeaAPITests.java

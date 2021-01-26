@@ -15,6 +15,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TemperaturaController {
 
 

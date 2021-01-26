@@ -4,6 +4,7 @@ import API.Logging;
 import API.model.Humidity;
 import API.service.HumidityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class HumidityController {
     @Autowired
     private HumidityService service;

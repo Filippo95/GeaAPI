@@ -52,6 +52,14 @@ public class TemperatureModelTest {
 
 
     }
+    @Test
+    public void ds(){
+        Timestamp tmp= Timestamp.valueOf("2020-08-27 00:00:00");
+        System.out.println(tmp.toString());
+        tmp.setTime(tmp.getTime()+1000*60*60*24);
+        System.out.println(tmp.toString());
+
+    }
 
 
 }

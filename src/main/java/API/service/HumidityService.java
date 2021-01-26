@@ -71,8 +71,10 @@ public class HumidityService {
         Matcher matcher=pattern.matcher(home_mac);
         if(!matcher.matches())
         {
+
             throw new IllegalArgumentException("il mac deve essere un mac valido");
         }
+
         List<Humidity> l=new ArrayList<Humidity>();
         RestHighLevelClient client = new RestHighLevelClient(
                 RestClient.builder(HttpHost.create("http://192.168.1.7:9200")));
@@ -91,13 +93,16 @@ public class HumidityService {
                                 .size(0)
                 ), RequestOptions.DEFAULT);
 
+        System.out.println(response.toString());
         Aggregations aggs = response.getAggregations();
-        Terms getLastHumidity = aggs.get("getLastHumidity");
+        Terms getLastHumidity = aggs.get("getLasthumidity");
         for (Terms.Bucket bucket : getLastHumidity.getBuckets())
         {
-            ParsedTopHits a=bucket.getAggregations().get("ultimeHumidity");
+            ParsedTopHits a=bucket.getAggregations().get("ultimehumidity");
             for (SearchHit hit :a.getHits())
             {
+
+
                 DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
                 Humidity humidity=new Humidity(
                         hit.getId(),
@@ -110,6 +115,7 @@ public class HumidityService {
                 l.add(humidity);
             }
         }
+
         return l;
     }
 

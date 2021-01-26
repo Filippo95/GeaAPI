@@ -79,11 +79,11 @@ public class TemperatureService {
         RestHighLevelClient client = new RestHighLevelClient(
                 RestClient.builder(HttpHost.create("http://192.168.1.7:9200")));
 
-            SearchResponse response = client.search(new SearchRequest("temperature")
-                    .source( new SearchSourceBuilder().query(
-                            QueryBuilders.matchQuery("id_home", mac)
-                            )
-                                    .aggregation(AggregationBuilders
+        SearchResponse response = client.search(new SearchRequest("temperature")
+                .source( new SearchSourceBuilder().query(
+                        QueryBuilders.matchQuery("id_home", mac)
+                        )
+                        .aggregation(AggregationBuilders
                                             .terms("getLastTemperatures")
                                             .field("id_sensor.keyword")
                                             .subAggregation(AggregationBuilders
@@ -92,7 +92,7 @@ public class TemperatureService {
                                     )
                                     .size(0)
                     ), RequestOptions.DEFAULT);
-
+        System.out.println(response.toString());
             Aggregations aggs = response.getAggregations();
             Terms getLastTemperatures = aggs.get("getLastTemperatures");
             for (Terms.Bucket bucket : getLastTemperatures.getBuckets())
