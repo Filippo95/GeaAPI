@@ -98,7 +98,7 @@ Controller just filter request selecting if parameter are correect and then pass
 ### Service
 Services class use elasticsearch client library to comunicate with the elasticsearch server and then performing queries. 
 
-##Tests
+## Tests
 under the folder test/java/API/ there are 3 folters: controller, model and service, those folters contains a test class for each entity. 
 Tests are developed as simple spring boot tests, for controller test, are realized using Mockito to emulate services classes\
 For service test mockito does not support mocking class defined as final in library elastisearch-hight-level-client, than service test check only if correct execptions are thorwn
