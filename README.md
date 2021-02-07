@@ -1,4 +1,4 @@
-# GeaAPI
+# GeaAPI ![Build jar, create and push DockerImage](https://github.com/Filippo95/GeaAPI/workflows/Build%20jar,%20create%20and%20push%20DockerImage/badge.svg)
 Small backend for some Elasticsearch index, using sping-boot \
 Gea Project is a IoT Project that allows you to collect data from temperature and humidity sensors, and Sonoff device using MQTT.\
 As IoT gateway it uses HomeAssistant, to show locally some datas and it allows you to integrate with many other addons. \
