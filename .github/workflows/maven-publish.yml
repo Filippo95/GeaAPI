@@ -7,22 +7,21 @@ on:
   push:
     branches:
       - main
-  
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
+    - name: Set up JDK
       uses: actions/setup-java@v1
       with:
-        java-version: 1.8
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
-
+        java-version: 1.11
     - name: Build with Maven
-      run: mvn package 
-
+      run: mvn clean install
+    - name: Publish to Docker Hub
+      uses: docker/build-push-action@v1
+      with:
+       username: ${{ secrets.DOCKER_HUB_USERNAME }}
+       password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+       repository: dockerHubUser/dockerHubRepository
+       tags: ${{github.run_number}}
