@@ -1,0 +1,13 @@
+API/Logging.class
+API/controller/TemperaturaController.class
+API/controller/HumidityController.class
+API/model/Temperatura.class
+API/model/Switch.class
+API/GeaAPI.class
+API/service/ElasticConfig.class
+API/model/Humidity.class
+API/service/HumidityService.class
+API/service/TemperatureService.class
+API/model/SwitchGraphData.class
+API/controller/SwitchController.class
+API/service/SwitchService.class

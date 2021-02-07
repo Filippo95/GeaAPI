@@ -1,0 +1,10 @@
+API/controller/SwitchControllerTest.class
+API/controller/HumidityControllerTest.class
+API/GeaAPITests.class
+API/controller/TemperaturaControllerTest.class
+API/model/SwitchModelTest.class
+API/model/TemperatureModelTest.class
+API/service/SwitchServiceTest.class
+API/model/HumidityModelTest.class
+API/service/TemperatureServiceTest.class
+API/service/HumidityServiceTest.class

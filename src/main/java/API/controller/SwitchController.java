@@ -23,7 +23,7 @@ public class SwitchController {
     private SwitchService service;
 
     @GetMapping(value = "/switch/{home_mac}/{sensor_mac}/getGraphData/{gte}/{lte}")
-    public List<SwitchGraphData> getaverageTemperature(@PathVariable String home_mac, @PathVariable String sensor_mac, @PathVariable String lte, @PathVariable String gte )
+    public List<SwitchGraphData> getGraphData(@PathVariable String home_mac, @PathVariable String sensor_mac, @PathVariable String lte, @PathVariable String gte )
     {
         Pattern pattern=Pattern.compile("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
         Pattern timestmapPattern=Pattern.compile("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3})Z$");

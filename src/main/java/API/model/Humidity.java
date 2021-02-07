@@ -31,7 +31,7 @@ public class Humidity {
     }
 
 
-        private boolean isMac(String mac){
+    private boolean isMac(String mac){
         Pattern pattern=Pattern.compile("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
         Matcher matcher=pattern.matcher(mac);
         if(matcher.matches())
