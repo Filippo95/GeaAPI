@@ -1,8 +1,6 @@
 package API.controller;
 
-
 import API.model.Humidity;
-import API.model.Temperatura;
 import API.service.HumidityService;
 import org.json.JSONArray;
 import org.junit.Assert;
@@ -39,8 +37,7 @@ public class HumidityControllerTest {
     private List<Humidity> lista;
     String exampleHumidityJson="";
 
-    public HumidityControllerTest()
-    {
+    public HumidityControllerTest() {
         lista = new ArrayList<Humidity>();
         try {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
@@ -101,6 +98,7 @@ public class HumidityControllerTest {
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
         String expected=result.getResponse().getContentAsString();
         JSONArray expected_array=new JSONArray(expected);
+        Assert.assertEquals(expected,exampleHumidityJson);
         System.out.println(expected);
 
     }
@@ -114,7 +112,6 @@ public class HumidityControllerTest {
     - test che i mac esistano nel db
     - test che
      */
-
     @Test
     public void method_search_should_return_error_if_mac_is_not_valid() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
@@ -125,7 +122,6 @@ public class HumidityControllerTest {
         JSONArray expected_array=new JSONArray(expected);
         Assert.assertEquals("errore",expected_array.getJSONObject(0).optString("id").toString());
     }
-
     @Test
     public void method_lasts_should_return_error_if_mac_is_not_valid() throws Exception {
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
@@ -146,7 +142,6 @@ public class HumidityControllerTest {
 
         Assert.assertEquals("0.0",expected);
     }
-
     @Test
     public void method_getaverageHumidity_should_return_error_if_sensor_mac_is_not_valid() throws Exception{
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
@@ -157,7 +152,6 @@ public class HumidityControllerTest {
 
         Assert.assertEquals("0.0",expected);
     }
-
     @Test
     public void method_getaverageHumidity_should_return_error_if_timestamp_lte_is_not_valid() throws Exception{
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(
@@ -168,7 +162,6 @@ public class HumidityControllerTest {
 
         Assert.assertEquals("0.0",expected);
     }
-
     @Test
     public void method_getaverageHumidity_should_return_error_if_timestamp_gte_is_not_valid() throws Exception{
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get(

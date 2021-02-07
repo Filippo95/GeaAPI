@@ -59,9 +59,6 @@ public class TemperaturaControllerTest {
         }
        exampleTemperatureJson = "[{\"id\":\"8Z60-3MBv7xejceh6jSY\",\"home_mac\":\"B8:27:EB:B7:E3:4C\",\"sensor_mac\":\"8C:AA:B5:04:5F:F7\",\"timestamp\":\"2020-08-17T09:16:44.458+00:00\",\"value\":29.09},{\"id\":\"8Z60-3MBv7xejceh6jSY\",\"home_mac\":\"B8:27:EB:B7:E3:4C\",\"sensor_mac\":\"8C:AA:B5:04:5F:F7\",\"timestamp\":\"2020-08-17T09:16:44.458+00:00\",\"value\":29.09},{\"id\":\"8Z60-3MBv7xejceh6jSY\",\"home_mac\":\"B8:27:EB:B7:E3:4C\",\"sensor_mac\":\"8C:AA:B5:04:5F:F7\",\"timestamp\":\"2020-08-17T09:16:44.458+00:00\",\"value\":29.09}]";
     }
-
-
-
     @Test
     public void Test_controller_lasts_should_return_an_arrray_of_3_elem() throws Exception {
         Mockito.when(
@@ -104,7 +101,6 @@ public class TemperaturaControllerTest {
         System.out.println(expected);
 
     }
-
     /*
     il controller ha dei compiti, ovvero verificare i parametri e eseguire la chiamata al service
     con questi test si vuolee verificare che il controller verifichi la correttezza dei parametri
@@ -175,4 +171,5 @@ public class TemperaturaControllerTest {
 
         Assert.assertEquals("0.0",expected);
     }
+
 }

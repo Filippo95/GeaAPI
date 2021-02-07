@@ -76,8 +76,6 @@ public class HumidityService {
         }
 
         List<Humidity> l=new ArrayList<Humidity>();
-        RestHighLevelClient client = new RestHighLevelClient(
-                RestClient.builder(HttpHost.create("http://192.168.1.7:9200")));
 
         SearchResponse response = client.search(new SearchRequest("humidity")
                 .source( new SearchSourceBuilder().query(
