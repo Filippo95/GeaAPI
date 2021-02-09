@@ -21,6 +21,8 @@ public class HumidityController {
     @Autowired
     private HumidityService service;
 
+
+
     @GetMapping("/humidity/{home_mac}/search")
     public List<Humidity> search(@PathVariable String home_mac)
     {

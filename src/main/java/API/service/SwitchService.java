@@ -73,6 +73,11 @@ public class SwitchService {
                         boolQuery
                 ).size(10000)
         ), RequestOptions.DEFAULT);
+        System.out.println(new SearchRequest("switch").source(
+                new SearchSourceBuilder().query(
+                        boolQuery
+                ).size(10000)
+        ).source().toString());
         System.out.println(response.toString());
         SearchHits hits = response.getHits();
         SearchHit[] searchHits = hits.getHits();
