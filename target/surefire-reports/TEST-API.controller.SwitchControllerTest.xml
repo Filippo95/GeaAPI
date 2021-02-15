@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="API.model.HumidityModelTest" time="0.002" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="API.controller.SwitchControllerTest" time="0.438" tests="8" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="13"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -54,9 +54,12 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="57.0"/>
   </properties>
-  <testcase name="test_that_set_home_mac_can_t_accept_invalid_home_mac" classname="API.model.HumidityModelTest" time="0.001"/>
-  <testcase name="test_that_set_sensor_mac_can_t_accept_invalid_sensor_mac" classname="API.model.HumidityModelTest" time="0"/>
-  <testcase name="test_that_costructor_can_t_accept_invalid_sensor_mac" classname="API.model.HumidityModelTest" time="0.001"/>
-  <testcase name="test_that_costructor_can_t_accept_invalid_home_mac" classname="API.model.HumidityModelTest" time="0"/>
-  <testcase name="test_that_costructor_accept_real_mac_as_string" classname="API.model.HumidityModelTest" time="0"/>
+  <testcase name="Test_Controller_getHours_should_return_0_if_macs_are_not_valid" classname="API.controller.SwitchControllerTest" time="0.01"/>
+  <testcase name="Test_Controller_getLights_should_return_an_array_of_3_elem" classname="API.controller.SwitchControllerTest" time="0.008"/>
+  <testcase name="Test_Controller_getAverageONHours_should_return_error_for_incorrect_arguments" classname="API.controller.SwitchControllerTest" time="0.03"/>
+  <testcase name="Test_Controller_getGraphData_should_return_error_for_incorrect_arguments" classname="API.controller.SwitchControllerTest" time="0.014"/>
+  <testcase name="Test_Controller_getHours_should_return_a_value_Double_" classname="API.controller.SwitchControllerTest" time="0.007"/>
+  <testcase name="Test_Controller_getAverageONHours_should_return_Double" classname="API.controller.SwitchControllerTest" time="0.006"/>
+  <testcase name="Test_Controller_getLights_should_return_error_if_mac_is_not_valid" classname="API.controller.SwitchControllerTest" time="0.004"/>
+  <testcase name="Test_Controller_getGraphData_should_retrun_list" classname="API.controller.SwitchControllerTest" time="0.009"/>
 </testsuite>

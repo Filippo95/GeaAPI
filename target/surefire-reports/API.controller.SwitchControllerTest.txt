@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: API.GeaAPITests
+Test set: API.controller.SwitchControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.506 s - in API.GeaAPITests
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.438 s - in API.controller.SwitchControllerTest

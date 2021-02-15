@@ -22,7 +22,7 @@ public class SwitchController {
     @Autowired
     private SwitchService service;
 
-    @GetMapping(value = "/switch/{home_mac}/{sensor_mac}/getGraphData/{gte}/{lte}")
+    @GetMapping("/switch/{home_mac}/{sensor_mac}/getGraphData/{gte}/{lte}")
     public List<SwitchGraphData> getGraphData(@PathVariable String home_mac, @PathVariable String sensor_mac, @PathVariable String lte, @PathVariable String gte )
     {
         Pattern pattern=Pattern.compile("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
@@ -49,7 +49,7 @@ public class SwitchController {
 
     }
 
-    @GetMapping(value="switch/{home_mac}/{sensor_mac}/getHours/{gte}/{lte}")
+    @GetMapping("switch/{home_mac}/{sensor_mac}/getHours/{gte}/{lte}")
     public Double getHours(@PathVariable String home_mac, @PathVariable String sensor_mac, @PathVariable String lte, @PathVariable String gte)
     {
         Pattern pattern=Pattern.compile("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
@@ -74,16 +74,21 @@ public class SwitchController {
         }
         return 0.0;
     }
-    @GetMapping(value="switch/{home_mac}/{sensor_mac}/getAverageONHours")
+    @GetMapping("switch/{home_mac}/{sensor_mac}/getAverageONHours")
     public Double getAverageONHours(@PathVariable String home_mac, @PathVariable String sensor_mac, @RequestBody List<String> list)
     {
         Pattern pattern=Pattern.compile("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
-        Pattern timestmapPattern=Pattern.compile("^(\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}.\\d{3})Z$");
+        if(!pattern.matcher(home_mac).matches() && !pattern.matcher(sensor_mac).matches())
+        {
+            new Logging("Errore nel controller Switch ","Errore nel mac inserito ","ritorno 0","/switch/"+home_mac+"/"+sensor_mac+"/getAverageONHours");
+            return 0.0;
+        }
+        Pattern timestmapPattern=Pattern.compile("^(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2}.\\d{3})$");
         List<Timestamp> l=new ArrayList<>();
         for (String time :list) {
-            if(!pattern.matcher(home_mac).matches() && !pattern.matcher(sensor_mac).matches() && !timestmapPattern.matcher(time).matches() )
+            if( !timestmapPattern.matcher(time).matches() )
             {
-                new Logging("Errore nel controller Switch","Errore il mac inserito non ","ritorno 0","/switch/"+home_mac+"/"+sensor_mac+"/getAverageONHours");
+                new Logging("Errore nel controller Switch","Errore la lista inserita non è corretta, l'elemento"+time+"non è un timestamp","ritorno 0","/switch/"+home_mac+"/"+sensor_mac+"/getAverageONHours");
                 return 0.0;
             }
             else
@@ -107,7 +112,7 @@ public class SwitchController {
         return 0.0;
     }
 
-    @GetMapping(value="switch/{home_mac}/getLights")
+    @GetMapping("switch/{home_mac}/getLights")
     public List<Switch> getLights(@PathVariable String home_mac){
         Pattern pattern=Pattern.compile("^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$");
         Matcher matcher=pattern.matcher(home_mac);

@@ -59,6 +59,8 @@ public class SwitchService {
         !timestmapPattern.matcher(lte).matches() ||
                 !timestmapPattern.matcher(gte).matches())
         {
+            System.out.println(gte.toString());
+            System.out.println(lte.toString());
             throw new IllegalArgumentException("Metodo getGraphData il timestamp  devono essere validi");
         }
 

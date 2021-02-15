@@ -6,6 +6,7 @@
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/main/java/API/GeaAPI.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/main/java/API/model/Humidity.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/main/java/API/model/Switch.java
+/Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/main/java/API/controller/MainController.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/main/java/API/service/SwitchService.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/main/java/API/Logging.java
 /Users/filippoluppi/Desktop/ProgettoGEA/GeaAPI/src/main/java/API/controller/TemperaturaController.java
